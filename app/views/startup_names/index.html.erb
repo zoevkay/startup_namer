@@ -1,0 +1,12 @@
+<h2>
+	This page will show all previously created startup names.
+</h2>
+
+
+<% @startup_names.each do |startup_name| %>
+	<p>
+		<%= link_to startup_name.content, startup_name_path(startup_name) %>
+	</p>
+<% end %>
+
+<%= link_to 'Create new name', new_startup_name_path %>
