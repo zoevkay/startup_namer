@@ -4,17 +4,29 @@ class StartupNamesController < ApplicationController
   end
 
   def show
-    #add this in!
+    @startup_name = StartupName.find(params[:id])
   end
 
   def new
-
+    @nouns = Noun.all
+    @adjectives = Adjective.all
   end
 
   def create
-    @startup_name = StartupName.new(params[:startup_name])
+    noun = Noun.find(params[:noun])
+    adjective = Adjective.find(params[:adjective])
+    new_name = adjective.content + noun.content
+    @startup_name = StartupName.new(:content => new_name)
     @startup_name.save
     redirect_to startup_name_path(@startup_name)
   end
 
+  def edit
+    @startup_name = StartupName.find(params[:id])
+  end
+
 end
+
+# add a suffix
+# css
+# look into how to only list unique fields 'rails collect unique models'

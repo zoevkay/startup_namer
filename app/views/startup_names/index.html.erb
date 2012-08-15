@@ -1,12 +1,18 @@
+<h1>
+	Startup Namer
+</h1>
+
 <h2>
-	This page will show all previously created startup names.
+	Create a new startup name and check out the ones already made
 </h2>
 
+<%= link_to 'Create new name', new_startup_name_path %>
 
 <% @startup_names.each do |startup_name| %>
-	<p>
-		<%= link_to startup_name.content, startup_name_path(startup_name) %>
-	</p>
+	<div id="startup_list">
+		<p>
+			<%= link_to startup_name.content, startup_name_path(startup_name) %>
+		</p>
+	</div>
 <% end %>
 
-<%= link_to 'Create new name', new_startup_name_path %>

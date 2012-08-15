@@ -1,7 +1,9 @@
 This is the page where you can make a new name.
 
 <%= form_for StartupName.new do |f| %>
-	<%= f.label :content %>
-	<%= f.text_field :content %>
+  <%= select_tag "noun", options_from_collection_for_select(@nouns, "id", "category") %>
+
+  <%= select_tag "adjective", options_from_collection_for_select(@adjectives, "id", "category") %>
+
 	<%= f.submit %>
 <% end %>
